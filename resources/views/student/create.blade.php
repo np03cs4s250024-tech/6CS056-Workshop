@@ -8,6 +8,19 @@
 
     <h1>Create Student</h1>
 
+    <!-- Step 11: Display Validation Error Messages -->
+    @if($errors->any())
+
+        <h3>Please fix the following errors:</h3>
+
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+
+    @endif
+
     <form action="{{ url('/student') }}" method="POST">
 
         @csrf
