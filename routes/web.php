@@ -66,6 +66,19 @@ Route::put('/students/{id}', function (Request $request, $id) {
         ->with('success', 'Student updated successfully!');
 });
 
+// Step 12: Delete a Student
+Route::delete('/students/{id}', function ($id) {
+
+    $student = Student::findOrFail($id);
+
+    $student->delete();
+
+    return redirect('/students')->with(
+        'success',
+        'Student deleted successfully!'
+    );
+});
+
 // Step 10 and Step 12: Store Student with Validation
 Route::post('/student', function (Request $request) {
 
