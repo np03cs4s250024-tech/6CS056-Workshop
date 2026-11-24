@@ -26,17 +26,20 @@
         @csrf
 
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="{{ old('name') }}">
+        <input type="text" id="name" name="name"
+            value="{{ old('name') }}">
 
         <br><br>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="{{ old('email') }}">
+        <input type="email" id="email" name="email"
+            value="{{ old('email') }}">
 
         <br><br>
 
         <label for="phone">Phone</label>
-        <input type="text" id="phone" name="phone" value="{{ old('phone') }}">
+        <input type="text" id="phone" name="phone"
+            value="{{ old('phone') }}">
 
         <br><br>
 
@@ -46,7 +49,8 @@
         <br><br>
 
         <label for="date_of_birth">Date of Birth</label>
-        <input type="date" id="date_of_birth" name="date_of_birth" value="{{ old('date_of_birth') }}">
+        <input type="date" id="date_of_birth" name="date_of_birth"
+            value="{{ old('date_of_birth') }}">
 
         <br><br>
 
@@ -56,7 +60,7 @@
 
     <br>
 
-    <a href="{{ url('/student/create') }}">Back to Create Student</a>
+    <a href="{{ route('students.index') }}">Back to Students</a>
 
 </body>
 </html>
