@@ -23,6 +23,15 @@ Route::get('/students', function () {
     ]);
 })->name('students.index');
 
+// Step 10: Display Student Details
+Route::get('/students/{id}', function ($id) {
+    $student = Student::findOrFail($id);
+
+    return view('student.detail', [
+        'student' => $student,
+    ]);
+})->name('students.show');
+
 // Step 10 and Step 12: Store Student with Validation
 Route::post('/student', function (Request $request) {
 
