@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Models\Student;
@@ -9,23 +10,27 @@ Route::get('/', function () {
 });
 
 // Step 9: Display Create Student Form
-Route::get("/student/create", function () {
-    return view("student.create");
+Route::get('/student/create', function () {
+    return view('student.create');
 });
 
-// Step 9: Store Student Information
-Route::post("/student", function (Request $request) {
+// Step 9 and Step 10: Store Student Information with Validation
+Route::post('/student', function (Request $request) {
 
-    $student_data = $request->only([
-        'name',
-        'email',
-        'phone',
-        'address',
-        'date_of_birth',
-    ]);
+    // Validate the submitted student information
+    
+$validated = $request->validate([
+    'name' => 'required|string|max:255',
+    'email' => 'required|email|max:255|unique:students,email',
+    'phone' => 'required|string|max:20',
+    'address' => 'nullable|string|max:500',
+    'date_of_birth' => 'nullable|date',
+]);
 
-    $student = Student::create($student_data);
 
+    // Save the validated information into the database
+    $student = Student::create($validated);
+
+    // Display success message
     return "Student {$student->name} created successfully!";
-
 });

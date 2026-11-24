@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 
     <h1>Create Student</h1>
 
-    <form action="{{ url('/students') }}" method="POST">
+    <form action="{{ url('/student') }}" method="POST">
 
         @csrf
 
@@ -42,7 +43,7 @@
 
     <br>
 
-    <a href="{{ url('/students') }}">Back to Students</a>
+    <a href="{{ url('/student/create') }}">Back to Create Student</a>
 
 </body>
 </html>
