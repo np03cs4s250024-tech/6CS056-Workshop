@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -80,5 +79,15 @@ class StudentController extends Controller
         return redirect()
             ->route('students.show', $student->id)
             ->with('success', 'Student updated successfully!');
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+
+        return redirect()
+            ->route('students.index')
+            ->with('success', 'Student deleted successfully!');
     }
 }
