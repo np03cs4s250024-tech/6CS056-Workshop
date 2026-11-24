@@ -40,11 +40,14 @@
                     <td>{{ $student->phone }}</td>
 
                     <td>
-                        <a href="{{ url('/student/' . $student->id) }}">View</a>
+                        <!-- View Student -->
+                        <a href="{{ url('/students/' . $student->id) }}">View</a>
 
-                        <a href="{{ url('/student/' . $student->id . '/edit') }}">Edit</a>
+                        <!-- Edit Student -->
+                        <a href="{{ url('/students/' . $student->id . '/edit') }}">Edit</a>
 
-                        <form action="{{ url('/student/' . $student->id) }}" method="POST" style="display:inline;">
+                        <!-- Delete Student -->
+                        <form action="{{ url('/students/' . $student->id) }}" method="POST" style="display:inline;">
 
                             @csrf
                             @method('DELETE')
