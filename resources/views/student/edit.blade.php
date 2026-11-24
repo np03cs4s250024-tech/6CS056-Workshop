@@ -8,6 +8,7 @@
 
     <h1>Edit Student</h1>
 
+    <!-- Display Validation Errors -->
     @if($errors->any())
 
         <h3>Please fix the following errors:</h3>
@@ -20,7 +21,8 @@
 
     @endif
 
-    <form action="/students/{{ $student->id }}" method="POST">
+    <!-- Update Student Form -->
+    <form action="{{ route('students.update', $student->id) }}" method="POST">
 
         @csrf
         @method('PUT')
@@ -55,6 +57,7 @@
 
     <br>
 
+    <!-- Back to Student List -->
     <a href="{{ route('students.index') }}">Back to Students</a>
 
 </body>

@@ -8,7 +8,7 @@
 
     <h1>Create Student</h1>
 
-    <!-- Step 11: Display Validation Error Messages -->
+    <!-- Display Validation Error Messages -->
     @if($errors->any())
 
         <h3>Please fix the following errors:</h3>
@@ -21,7 +21,8 @@
 
     @endif
 
-    <form action="{{ url('/student') }}" method="POST">
+    <!-- Student Create Form -->
+    <form action="{{ route('students.store') }}" method="POST">
 
         @csrf
 
@@ -60,6 +61,7 @@
 
     <br>
 
+    <!-- Back to Student List -->
     <a href="{{ route('students.index') }}">Back to Students</a>
 
 </body>

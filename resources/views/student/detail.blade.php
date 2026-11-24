@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 
     <h1>Student Details</h1>
 
+    <!-- Display Student Information -->
     <p><strong>ID:</strong> {{ $student->id }}</p>
 
     <p><strong>Name:</strong> {{ $student->name }}</p>
@@ -21,13 +23,17 @@
 
     <br>
 
-    <a href="{{ url('/students/' . $student->id . '/edit') }}">
-    Edit Student
-</a>
+    <!-- Edit Student -->
+    <a href="{{ route('students.edit', $student->id) }}">
+        Edit Student
+    </a>
 
     <br><br>
 
-    <a href="{{ route('students.index') }}">Back to Students</a>
+    <!-- Back to Student List -->
+    <a href="{{ route('students.index') }}">
+        Back to Students
+    </a>
 
 </body>
 </html>

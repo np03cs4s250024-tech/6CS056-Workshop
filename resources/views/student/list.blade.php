@@ -13,7 +13,8 @@
         <p>{{ session('success') }}</p>
     @endif
 
-    <a href="{{ url('/student/create') }}">Create Student</a>
+    <!-- Create Student -->
+    <a href="{{ route('students.create') }}">Create Student</a>
 
     <br><br>
 
@@ -41,13 +42,13 @@
 
                     <td>
                         <!-- View Student -->
-                        <a href="{{ url('/students/' . $student->id) }}">View</a>
+                        <a href="{{ route('students.show', $student->id) }}">View</a>
 
                         <!-- Edit Student -->
-                        <a href="{{ url('/students/' . $student->id . '/edit') }}">Edit</a>
+                        <a href="{{ route('students.edit', $student->id) }}">Edit</a>
 
                         <!-- Delete Student -->
-                        <form action="{{ url('/students/' . $student->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
 
                             @csrf
                             @method('DELETE')
