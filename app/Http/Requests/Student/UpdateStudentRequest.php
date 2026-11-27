@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Requests\Student;
@@ -19,7 +18,6 @@ class UpdateStudentRequest extends FormRequest
 
         return [
             'name' => 'required|string|max:255',
-
             'email' => [
                 'required',
                 'email',
@@ -27,7 +25,6 @@ class UpdateStudentRequest extends FormRequest
                 Rule::unique('students', 'email')
                     ->ignore($student->id),
             ],
-
             'phone' => 'required|string|max:20',
             'address' => 'nullable|string|max:500',
             'date_of_birth' => 'nullable|date',
